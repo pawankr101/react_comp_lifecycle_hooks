@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import Child from './Child/Child'
+import { Child } from './Child/Child'
 
 class App extends React.Component {
   state = {
     component_name: 'App'
   }
 
-  constructor() {
-    super();
+  constructor(props:any) {
+    super(props);
     console.log('---------------------------------------------------')
     this.state.component_name += ' Component'
     console.log(`${this.state.component_name} constructor`)

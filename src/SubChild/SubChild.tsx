@@ -1,9 +1,9 @@
 import React from 'react';
 import './SubChild.css';
-import SubSubChild from '../SubSubChild/SubSubChild'
+import { SubSubChild } from '../SubSubChild/SubSubChild'
 
-class SubChild extends React.Component {
-    state = {
+export class SubChild extends React.Component {
+    state:any = {
         component_name: 'SubChild',
         mount: true,
         counter: 1
@@ -87,7 +87,7 @@ class SubChild extends React.Component {
                     <button style={{marginRight: '10px'}} onClick={() => this.mount_sub_sub_child()}>Mount</button>
                     <button style={{marginRight: '10px'}} onClick={() => this.un_mount_sub_sub_child()}>Un Mount</button>
                 </div>
-                {mount ? <SubSubChild parent_counter={counter}/> : null}
+                {mount ? <SubSubChild {...{parent_counter:counter}}/> : null}
             </div>
         );
     }
@@ -130,5 +130,3 @@ class SubChild extends React.Component {
       console.log('---------------------------------------------------')
     }
 }
-
-export default SubChild;

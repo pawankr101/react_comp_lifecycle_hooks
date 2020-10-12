@@ -1,8 +1,8 @@
 import React from 'react';
 import './Child.css';
-import SubChild from '../SubChild/SubChild'
+import { SubChild } from '../SubChild/SubChild'
 
-class Child extends React.Component {
+export class Child extends React.Component {
     state = {
         component_name: 'Child',
         counter: 0
@@ -66,7 +66,7 @@ class Child extends React.Component {
                     <button style={{marginRight: '10px'}} onClick={() => this.increment_count(2)}>Increment</button>
                     <button onClick={() => this.decrement_count(2)}>Decrement</button>
                 </div>
-                <SubChild parent_counter={counter}/>
+                <SubChild {...{parent_counter:counter}}/>
             </div>
         );
     }
@@ -109,5 +109,3 @@ class Child extends React.Component {
       console.log('---------------------------------------------------')
     }
 }
-
-export default Child;

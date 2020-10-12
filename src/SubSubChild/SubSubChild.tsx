@@ -1,21 +1,20 @@
 import React from 'react';
 import './SubSubChild.css';
-import { UtilityService } from "../utility";
+import { Utility } from '../utility';
 
-class SubSubChild extends React.Component {
-    state = {
-        component_name: 'SubSubChild'
+export class SubSubChild extends React.Component {
+    state: any = {
+      component_name: 'SubSubChild'
     }
 
     constructor(props) {
       super(props);
-      this.utility = new UtilityService();
       console.log('---------------------------------------------------')
       this.state.component_name += ' Component';
       this.state.parent_counter = props.parent_counter || 1;
       console.log(`${this.state.component_name} constructor`);
       console.log('---------------------------------------------------')
-      console.log(this.utility.getValue({a: {b: 'csjk'}}, 'a.b', 'nahi mila'));
+      console.log(Utility.getValue({a: {b: 'csjk'}}, 'a.b', 'nahi mila'));
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -91,5 +90,3 @@ class SubSubChild extends React.Component {
       console.log('---------------------------------------------------')
     }
 }
-
-export default SubSubChild;
